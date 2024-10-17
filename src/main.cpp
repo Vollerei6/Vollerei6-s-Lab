@@ -8,26 +8,26 @@ void play();
 void data_search();
 void exit();
 
-//Ö÷³ÌĞò²¿·Ö 
+//ä¸»ç¨‹åºéƒ¨åˆ† 
 int main()
 {
     char player_name[16]="Player";
-    Character Player(100,20,10,0,1,3,player_name);//¶¨ÒåÒ»¸öÍæ¼Ò¶ÔÏó 
-    archive(&Player);//¶Áµµ
+    Character Player(100,20,10,0,1,3,player_name);//å®šä¹‰ä¸€ä¸ªç©å®¶å¯¹è±¡ 
+    archive(&Player);//è¯»æ¡£
     int status=0;
     while(true)
     {
-        cout<<"»¶Ó­À´µ½ÂÌÉñ»°-Âğà¶"<<endl;
-		cout<<"ÇëÑ¡ÔñÄãÒª½øÈëµÄÒ³Ãæ"<<endl;
-		cout<<"ÊäÈë1£º½øÈëÓÎÏ·"<<endl;
-		cout<<"ÊäÈë2£º²é¿´ËµÃ÷"<<endl;
-		cout<<"ÊäÈë3£º´æµµÍË³ö"<<endl;
+        cout<<"æ¬¢è¿æ¥åˆ°ç»¿ç¥è¯-å—å–½"<<endl;
+		cout<<"è¯·é€‰æ‹©ä½ è¦è¿›å…¥çš„é¡µé¢"<<endl;
+		cout<<"è¾“å…¥1ï¼šè¿›å…¥æ¸¸æˆ"<<endl;
+		cout<<"è¾“å…¥2ï¼šæŸ¥çœ‹è¯´æ˜"<<endl;
+		cout<<"è¾“å…¥3ï¼šå­˜æ¡£é€€å‡º"<<endl;
 		cin>>status;
         switch(status){
         case 1:play(&Player);break;
         case 2:data_search(Player);break;
         case 3:exit(Player);break;
-        default:cout<<"ÊäÈëÎŞĞ§£¡"<<endl;
+        default:cout<<"è¾“å…¥æ— æ•ˆï¼"<<endl;
         }
         if(status==3) break;
     }

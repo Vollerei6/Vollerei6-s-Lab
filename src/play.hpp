@@ -13,9 +13,9 @@ void play(Character* ID)
     bool attack_finish=false;
     while(1){
         attack_finish=false;
-        cout<<"ÇëÑ¡ÔñÄãµÄ¹¥»÷·½Ê½"<<endl;
-        cout<<"°´1½øÐÐÆÕÍ¨¹¥»÷£¬°´2½øÐÐÌØÊâ¹¥»÷"<<endl;
-        cout<<"ÌØÊâ¹¥»÷CD»¹ÓÐ"<<(*p).skillCD<<"Ãë"<<endl;
+        cout<<"è¯·é€‰æ‹©ä½ çš„æ”»å‡»æ–¹å¼"<<endl;
+        cout<<"æŒ‰1è¿›è¡Œæ™®é€šæ”»å‡»ï¼ŒæŒ‰2è¿›è¡Œç‰¹æ®Šæ”»å‡»"<<endl;
+        cout<<"ç‰¹æ®Šæ”»å‡»CDè¿˜æœ‰"<<(*p).skillCD<<"ç§’"<<endl;
         do{
             cin>>attack_option;
             switch(attack_option){
@@ -29,24 +29,24 @@ void play(Character* ID)
                     (*p).skill(&Enemy);
                     attack_finish=true;
                 }
-                else cout<<"¼¼ÄÜ»¹ÔÚÀäÈ´ÖÐ"<<endl;
+                else cout<<"æŠ€èƒ½è¿˜åœ¨å†·å´ä¸­"<<endl;
                 break;
             default:
-                cout<<"ÎÞÐ§ÊäÈë£¡"<<endl;
+                cout<<"æ— æ•ˆè¾“å…¥ï¼"<<endl;
             }
         }while(!attack_finish);
-        cout<<"µÐÈË»¹ÓÐ"<<Enemy.HP<<"µãÑª£¡"<<endl;
+        cout<<"æ•Œäººè¿˜æœ‰"<<Enemy.HP<<"ç‚¹è¡€ï¼"<<endl;
         if(Enemy.HP<=0){
-        	cout<<"µÐÈËËÀÁË£¡"<<endl;
+        	cout<<"æ•Œäººæ­»äº†ï¼"<<endl;
             (*p).EXP+=1;
             (*p).LevelUp();
             Enemy.~Character();
             break;
         }
         Enemy.attack(ID);
-        cout<<"Äã»¹ÓÐ"<<(*p).HP<<"µãÑª£¡"<<endl;
+        cout<<"ä½ è¿˜æœ‰"<<(*p).HP<<"ç‚¹è¡€ï¼"<<endl;
         if((*p).HP<=0){
-            cout<<"ÄãËÀÁË!"<<endl;
+            cout<<"ä½ æ­»äº†!"<<endl;
             (*p).HP=(*p).HPMAX;
             break;
         }
