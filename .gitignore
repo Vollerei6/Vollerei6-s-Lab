@@ -1,6 +1,0 @@
-out
-.vs
-CmakeFiles
-*.vcxproj*
-*.cmake
-CmakeChache.text
