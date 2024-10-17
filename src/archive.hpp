@@ -1,4 +1,4 @@
-//该头文件用于存档
+﻿//该头文件用于存档
 #ifndef _archive_h
 #define _archive_h
 #include <iostream>
