@@ -1,3 +1,14 @@
 .vscode
 .cache
 build
+.vs
+CmakeFiles
+Debug
+Release
+out
+x64
+Vollerei6sLab.dir
+*.vcxproj*
+archive.dat
+CmakeCache.txt
+cmake_install.cmake

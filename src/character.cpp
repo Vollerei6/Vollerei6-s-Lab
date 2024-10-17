@@ -1,4 +1,4 @@
-#include "character.hpp"
+﻿#include "character.hpp"
 Character::Character(double a,double b,double c,int d,int e,int f,char g[16]){
 	HPMAX=a;
 	HP=a;

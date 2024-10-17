@@ -1,4 +1,4 @@
-//这个character类包含了character的各项属性，以及可以执行的各项函数 
+﻿//这个character类包含了character的各项属性，以及可以执行的各项函数 
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 #include <fstream>

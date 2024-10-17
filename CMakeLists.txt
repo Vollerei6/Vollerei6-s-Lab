@@ -16,6 +16,7 @@ set(SOURCES
     src/character.cpp
     src/play.hpp
     src/archive.hpp
+    src/character.hpp
 )
 
 # 生成可执行文件
