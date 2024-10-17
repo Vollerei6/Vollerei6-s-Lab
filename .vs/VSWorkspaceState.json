@@ -1,0 +1,13 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "out\\build\\x64-Debug",
+      "out\\install\\x64-Debug"
+    ]
+  },
+  "ExpandedNodes": [
+    ""
+  ],
+  "SelectedNode": "\\D:\\Documents\\repos\\Vollerei6-s-Lab\\CMakeLists.txt\\Vollerei6sLab.exe\\D:\\Documents\\repos\\Vollerei6-s-Lab\\src\\play.hpp",
+  "PreviewInSolutionExplorer": false
+}
