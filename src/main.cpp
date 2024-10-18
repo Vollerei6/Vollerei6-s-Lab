@@ -12,10 +12,12 @@ using namespace std;
 //主程序部分 
 int main()
 {
-    string playername = "Player";
+    string playername;
+    cout << "Enter your name\n";
+    cin >> playername;
     Character Player(playername);
     int status=0;
-    Player.Save();
+    Player.Load();
     while(true)
     {
         cout<<"欢迎来到绿神话-吗喽"<<endl;
