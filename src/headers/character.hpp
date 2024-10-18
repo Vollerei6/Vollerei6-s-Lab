@@ -1,9 +1,11 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
+#include <string>
 #include <vector>
 class Character {
 private:
+    std::string name;
     int health;
     int attack;
     int defense;
@@ -15,7 +17,18 @@ private:
 
 public:
     // 构造函数
-    Character(int initialHealth) : health(initialHealth) {}
+    Character(std::string initialName, int initialHealth, int initialAttack, int initialDefense, int initialSpeed, int initialWeapon, int initialLevel, int initialExp)
+        : name(initialName), health(initialHealth), attack(initialAttack), defense(initialDefense), speed(initialSpeed), weapon(initialWeapon), level(initialLevel), exp(initialExp) {}
+
+    // 获取角色名
+    std::string getName() const {
+        return name;
+    }
+
+    // 设置角色名
+    void setName(const std::string& newName) {
+        name = newName;
+    }
 
     // 获取当前血量
     int getHealth() const {
@@ -41,13 +54,13 @@ public:
     }
 
         // 获取攻击力
-    int getAttackPower() const {
+    int getAttack() const {
         return attack;
     }
 
     // 设置攻击力
-    void setAttackPower(int newAttackPower) {
-        attack = newAttackPower;
+    void setAttack(int newAttack) {
+        attack = newAttack;
     }
 
     // 获取防御力

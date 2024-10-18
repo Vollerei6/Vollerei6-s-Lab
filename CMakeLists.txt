@@ -11,10 +11,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # 添加源文件
 set(SOURCES
     src/main.cpp
+    src/headers/item.hpp
+    src/headers/character.hpp
 )
 
 # 添加可执行文件
 add_executable(Vollerei6sLab ${SOURCES})
 
 # 包含目录
-target_include_directories((Vollerei6sLab PRIVATE assets)
+target_include_directories(Vollerei6sLab PRIVATE assets)
