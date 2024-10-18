@@ -1,6 +1,7 @@
 ﻿#include "character.hpp"
 #include <fstream>
 #include <string>
+#include <nlohmann/json.hpp>
 
 Character::Character(const std::string & t_name,double t_HPMAX,double t_ATK,double t_DEF,int t_EXP,int t_LV,int t_skillCD_MAX)//构造函数
 {
@@ -71,5 +72,19 @@ void Character::Load()
 
 void Character::Save()
 {
-	
+	using json = nlohmann::json;
+	std::ofstream fout("archive.json");
+	if (fout.is_open())
+	{
+		json archive;
+		archive["name"] = name;
+		archive["HP_MAX"] = HPMAX;
+		archive["HP"] = HP;
+		archive["ATK"] = ATK;
+		archive["DEF"] = DEF;
+		archive["EXP"] = EXP;
+		archive["LV"] = LV;
+		fout << archive << std::endl;
+		fout.close();
+	}
 }

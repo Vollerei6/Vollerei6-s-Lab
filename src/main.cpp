@@ -14,8 +14,8 @@ int main()
 {
     string playername = "Player";
     Character Player(playername);
-    Player.Load();
     int status=0;
+    Player.Save();
     while(true)
     {
         cout<<"欢迎来到绿神话-吗喽"<<endl;
