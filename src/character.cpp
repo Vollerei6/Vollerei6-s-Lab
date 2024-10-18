@@ -1,18 +1,23 @@
 ﻿#include "character.hpp"
-Character::Character(double a,double b,double c,int d,int e,int f,char g[16]){
-	HPMAX=a;
-	HP=a;
-	ATK=b;
-	DEF=c;
-	EXP=d;
-	LV=e;
-	skillCD=0;
-	skillCD_MAX=f;
-	strcpy(name,g);
+#include <fstream>
+#include <string>
+
+Character::Character(const std::string & t_name,double t_HPMAX,double t_ATK,double t_DEF,int t_EXP,int t_LV,int t_skillCD_MAX)//构造函数
+{
+	HPMAX = t_HPMAX;
+	HP = t_HPMAX;
+	ATK = t_ATK;
+	DEF = t_DEF;
+	EXP = t_EXP;
+	LV = t_LV;
+	skillCD = t_skillCD_MAX;
+	skillCD_MAX = t_skillCD_MAX;
+	name = t_name;
 }
 
 void Character::attack(Character *ID) const
 {
+	using namespace std;
 	double DMG=0;
 	Character *p=ID;
 	DMG=ATK-(*p).DEF;
@@ -22,6 +27,7 @@ void Character::attack(Character *ID) const
 
 void Character::skill(Character *ID)
 {
+	using namespace std;
 	skillCD=skillCD_MAX;
 	double DMG=0;
 	Character *p=ID;
@@ -45,4 +51,25 @@ void Character::LevelUp()
 		ATK+=2;
 		DEF+=1;
 	}
+}
+
+void Character::Load()
+{
+	using namespace std;
+	ifstream infile("archive.dat");//尝试打开存档
+	if (infile.good()) {
+		infile >> HPMAX;
+		HP = HPMAX;
+		infile >> ATK;
+		infile >> DEF;
+		infile >> EXP;
+		infile >> LV;
+		infile >> name;
+		infile.close();
+	}
+}
+
+void Character::Save()
+{
+	
 }
