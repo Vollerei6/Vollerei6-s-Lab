@@ -15,7 +15,6 @@ set(SOURCES
     src/main.cpp
     src/character.cpp
     src/play.hpp
-    src/archive.hpp
     src/character.hpp
 )
 

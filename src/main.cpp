@@ -2,7 +2,6 @@
 #include <string>
 #include "character.hpp"
 #include "play.hpp"
-#include "archive.hpp"
 using namespace std;
 //void archive();
 //void play();
@@ -28,7 +27,7 @@ int main()
         cout << "输入4：查看角色" << endl;
 		cin>>status;
         switch(status){
-        //case 1:play(&Player);break;
+        case 1:play(Player);break;
         //case 2:data_search(Player);break;
         //case 3:exit(Player);break;
         default:cout<<"输入无效！"<<endl;

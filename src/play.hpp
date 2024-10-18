@@ -2,8 +2,8 @@
 #define _play_h
 #include <iostream>
 #include "character.hpp"
-#include "archive.hpp"
-using namespace std;
+
+void play(Character& playername);
 /*void play(Character* ID)
 {
     char enemy_name[16] = "Enemy";

@@ -10,11 +10,12 @@ class Character{
 	public:
 		Character(const std::string& t_name, double t_HPMAX = 100, double t_ATK = 50, double t_DEF = 30, int t_EXP = 0, int t_LV = 0, int t_skillCD_MAX = 3);//构造函数
 		~Character() = default;
-		void attack(Character *ID) const;//将攻击等操作用函数形式封装，便于后续维护 
+		friend double attack(const Character &attacker, Character &Target);
 		void skill(Character *ID);
 		void LevelUp();///升级
 		void Save();
 		void Load();
+		inline double getHp() { return HP;}
 	private:
 		long long coin = 0;
 		double HPMAX;//表示生命值上限 

@@ -15,7 +15,7 @@ Character::Character(const std::string & t_name,double t_HPMAX,double t_ATK,doub
 	skillCD_MAX = t_skillCD_MAX;
 	name = t_name;
 }
-
+/*
 void Character::attack(Character *ID) const
 {
 	using namespace std;
@@ -25,7 +25,7 @@ void Character::attack(Character *ID) const
 	(*p).HP-=DMG;
 	cout<<"造成了"<<DMG<<"点伤害"<<endl;
 }
-
+*/
 void Character::skill(Character *ID)
 {
 	using namespace std;
