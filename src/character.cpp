@@ -56,34 +56,64 @@ void Character::LevelUp()
 
 void Character::Load()
 {
-	using namespace std;
-	ifstream infile("archive.dat");//尝试打开存档
-	if (infile.good()) {
-		infile >> HPMAX;
-		HP = HPMAX;
-		infile >> ATK;
-		infile >> DEF;
-		infile >> EXP;
-		infile >> LV;
-		infile >> name;
-		infile.close();
+	using json = nlohmann::json;
+	std::ifstream fin("archive.json");
+	if (fin.is_open())
+	{
+		json archive;
+		fin >> archive;
+		if (archive.contains(name))
+		{
+			HPMAX = archive[name]["HP_MAX"].get<double>();
+			HP = archive[name]["HP"].get<double>();
+			ATK = archive[name]["ATK"].get<double>();
+			DEF = archive[name]["DEF"].get<double>();
+			EXP = archive[name]["EXP"].get<int>();
+			LV = archive[name]["LV"].get<int>();
+			skillCD_MAX = archive[name]["skillCD_MAX"].get<int>();
+			std::cout << "角色:" << name << "读取成功" << std::endl;
+		}
+		else
+		{
+			Save();
+			std::cout << "已为您新建角色：" << name << std::endl;
+		}
+	}
+	else
+	{
+		Save();
+		std::cout << "已为您新建角色：" << name << std::endl;
 	}
 }
 
 void Character::Save()
 {
 	using json = nlohmann::json;
-	std::ofstream fout("archive.json");
+	std::ifstream fin("archive.json");
+	std::ofstream fout;
+	json archive;
+	if (fin.is_open())
+	{
+		fin >> archive;
+	}
+	else
+	{
+		fout.open("archive.json");
+		fout << "{}";
+		fout.close();
+		fout.clear();
+	}
+	fin.close();
+	fout.open("archive.json");
 	if (fout.is_open())
 	{
-		json archive;
-		archive["name"] = name;
-		archive["HP_MAX"] = HPMAX;
-		archive["HP"] = HP;
-		archive["ATK"] = ATK;
-		archive["DEF"] = DEF;
-		archive["EXP"] = EXP;
-		archive["LV"] = LV;
+		archive[name]["HP_MAX"] = HPMAX;
+		archive[name]["HP"] = HP;
+		archive[name]["ATK"] = ATK;
+		archive[name]["DEF"] = DEF;
+		archive[name]["EXP"] = EXP;
+		archive[name]["LV"] = LV;
+		archive[name]["skillCD_MAX"] = skillCD_MAX;
 		fout << archive << std::endl;
 		fout.close();
 	}
