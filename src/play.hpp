@@ -2,9 +2,9 @@
 #define _play_h
 #include <iostream>
 #include "character.hpp"
-#include "archive.hpp"
-using namespace std;
-void play(Character* ID)
+
+void play(Character& playername);
+/*void play(Character* ID)
 {
     char enemy_name[16] = "Enemy";
     Character Enemy(50, 15, 7, 0, 1, 0,enemy_name);
@@ -53,4 +53,5 @@ void play(Character* ID)
     }
     save(*p);
 }
+*/
 #endif
