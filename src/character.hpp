@@ -6,10 +6,11 @@
 #include <cstring>
 #include <string>
 #include "random_get.hpp"
+#include "weapon.hpp"
 
 class Character{
 	public:
-		Character(const std::string& t_name, double t_HPMAX = 100, double t_ATK = 50, double t_DEF = 30, int t_EXP = 0, int t_LV = 0, int t_skillCD_MAX = 3);//构造函数
+		Character(const std::string& name, double HPMAX = 100, double ATK = 50, double DEF = 30, int EXP = 0, int LV = 0, int skillCD_MAX = 3,double speed=100);//构造函数
 		~Character() = default;
 		void skill(Character *ID);
 		void LevelUp();///升级
@@ -21,6 +22,7 @@ class Character{
 		double damage(const double takeDamage);
 	private:
 		long long coin = 0;
+		Weapon weapon; //拥有武器
 		double HPMAX;//表示生命值上限 
 		double HP;//表示现有的生命值 
 		double ATK;
@@ -29,6 +31,7 @@ class Character{
 		int LV;
 		int skillCD;//当前的剩余冷却时间 
 		int skillCD_MAX;//最大CD 
+		double speed;
 		std::string name;
 };//角色类，包含角色的各种属性/角色可进行的行为 
 #endif // CHARACTER_HPP

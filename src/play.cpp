@@ -14,11 +14,10 @@ void play(Character& player)
 	Character enemy("Enemy", 120*getDis(), 50*getDis(), 30*getDis());
 	while (true)
 	{
-		cout << "造成" << attack(player, enemy) << "点伤害" << endl;
-		cout << "受到" << attack(enemy, player) << "点伤害" << endl;
-		green("玩家血量:" + to_string(player.getHp()));
-		endl(cout);
-		red("怪物血量:" + to_string(enemy.getHp()));
+		cout << "造成" <<green()<< attack(player, enemy) <<white()<< "点伤害" << endl;
+		cout << "受到" <<red()<< attack(enemy, player) <<white()<< "点伤害" << endl;
+		cout << green()<<"玩家血量:" << player.getHp()<<white()<<endl;
+		cout <<red()<<"怪物血量:"<<enemy.getHp()<<white()<<endl;
 		endl(cout);
 		if (player.getHp() <= 0)
 		{

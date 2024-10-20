@@ -5,29 +5,20 @@
 #include <format>
 #include "random_get.hpp"
 
-Character::Character(const std::string & t_name,double t_HPMAX,double t_ATK,double t_DEF,int t_EXP,int t_LV,int t_skillCD_MAX)//构造函数
+Character::Character(const std::string & name,double HPMAX,double ATK,double DEF,int EXP,int LV,int skillCD_MAX,double speed)//构造函数
 {
-	HPMAX = t_HPMAX;
-	HP = t_HPMAX;
-	ATK = t_ATK;
-	DEF = t_DEF;
-	EXP = t_EXP;
-	LV = t_LV;
-	skillCD = t_skillCD_MAX;
-	skillCD_MAX = t_skillCD_MAX;
-	name = t_name;
+	this ->HPMAX = HPMAX;
+	this->HP = HPMAX;
+	this->ATK = ATK;
+	this->DEF = DEF;
+	this->EXP = EXP;
+	this->LV = LV;
+	this->skillCD = skillCD_MAX;
+	this->skillCD_MAX = skillCD_MAX;
+	this-> name = name;
+	this->speed = speed;
 }
-/*
-void Character::attack(Character *ID) const
-{
-	using namespace std;
-	double DMG=0;
-	Character *p=ID;
-	DMG=ATK-(*p).DEF;
-	(*p).HP-=DMG;
-	cout<<"造成了"<<DMG<<"点伤害"<<endl;
-}
-*/
+
 void Character::skill(Character *ID)
 {
 	using namespace std;
@@ -66,14 +57,25 @@ void Character::Load()
 		fin >> archive;
 		if (archive.contains(name))
 		{
-			HPMAX = archive[name]["HP_MAX"].get<double>();
-			HP = archive[name]["HP"].get<double>();
-			ATK = archive[name]["ATK"].get<double>();
-			DEF = archive[name]["DEF"].get<double>();
-			EXP = archive[name]["EXP"].get<int>();
-			LV = archive[name]["LV"].get<int>();
-			skillCD_MAX = archive[name]["skillCD_MAX"].get<int>();
-			std::cout << "角色:" << name << "读取成功" << std::endl;
+			try
+			{
+				HPMAX = archive[name]["HP_MAX"].get<double>();
+				HP = archive[name]["HP"].get<double>();
+				ATK = archive[name]["ATK"].get<double>();
+				DEF = archive[name]["DEF"].get<double>();
+				EXP = archive[name]["EXP"].get<int>();
+				LV = archive[name]["LV"].get<int>();
+				skillCD_MAX = archive[name]["skillCD_MAX"].get<int>();
+				this->speed = archive[name]["speed"].get<double>();
+				std::cout << "角色:" << name << "读取成功" << std::endl;
+			}
+			catch (std::exception &e)
+			{
+				#ifdef _DEBUG
+				std::cerr << e.what()<<std::endl;
+				#endif 		
+				Save();
+	  		}
 		}
 		else
 		{
@@ -116,6 +118,7 @@ void Character::Save()
 		archive[name]["EXP"] = EXP;
 		archive[name]["LV"] = LV;
 		archive[name]["skillCD_MAX"] = skillCD_MAX;
+		archive[name]["speed"] = this->speed;
 		fout << archive << std::endl;
 		fout.close();
 	}

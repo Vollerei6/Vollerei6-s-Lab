@@ -17,4 +17,7 @@ public:
     // 其他成员函数...  
 };
 
-double getDis();
+inline double getDis() 
+{
+    return RandomGenerator::getNormalDistribution()(RandomGenerator::getGenerator());
+}

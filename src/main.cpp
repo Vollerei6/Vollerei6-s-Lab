@@ -5,17 +5,19 @@
 #include "color.hpp"
 #include <random>
 using namespace std;
-//void archive();
-//void play();
-//void data_search();
-//void exit();
+
+
 
 //主程序部分 
 int main()
 {
+    #ifdef _DEBUG
+    cout << "目前处于debug模式" << endl;
+    #endif // _DEBUG
+
     rgb_init();
     string playername;
-    cout << "Enter your name\n";
+    cout <<white()<< "Enter your name\n";
     cin >> playername;
     Character Player(playername);
     int status=0;
