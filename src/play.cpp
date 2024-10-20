@@ -16,7 +16,7 @@ void play(Character& player)
 	{
 		cout << "造成" << attack(player, enemy) << "点伤害" << endl;
 		cout << "受到" << attack(enemy, player) << "点伤害" << endl;
-		green("玩家血量:" + to_string(enemy.getHp()));
+		green("玩家血量:" + to_string(player.getHp()));
 		endl(cout);
 		red("怪物血量:" + to_string(enemy.getHp()));
 		endl(cout);
