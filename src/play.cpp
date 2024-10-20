@@ -6,12 +6,12 @@
 #include <algorithm>
 #include "Windows.h"
 #include "color.hpp"
+#include "random_get.hpp"
 
 void play(Character& player)
 {
-	using std::srand, std::time, std::rand,std::cout,std::endl,std::to_string;
-	srand(time(NULL));
-	Character enemy("Enemy", rand() % 120, rand() % 50, rand() % 30);
+	using std::cout,std::endl,std::to_string;
+	Character enemy("Enemy", 120*getDis(), 50*getDis(), 30*getDis());
 	while (true)
 	{
 		cout << "Ôì³É" << attack(player, enemy) << "µãÉËº¦" << endl;

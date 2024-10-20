@@ -3,6 +3,7 @@
 #include <string>
 #include <nlohmann/json.hpp>
 #include <format>
+#include "random_get.hpp"
 
 Character::Character(const std::string & t_name,double t_HPMAX,double t_ATK,double t_DEF,int t_EXP,int t_LV,int t_skillCD_MAX)//构造函数
 {
@@ -119,15 +120,19 @@ void Character::Save()
 		fout.close();
 	}
 }
-double attack(const Character& attacker, Character& target)
+double attack(Character& attacker, Character& target)
 {
-	double damage = 0;
-	damage = (std::max)(attacker.ATK - target.DEF, attacker.ATK * 0.05);
-	target.HP -= damage;
-	return damage;
+	return target.damage(attacker.getATK());
 }
 
 void Character::getInfo()
 {
 	std::cout << std::format("金币数:{0}\n血量:{1}\n攻击:{2}\n防御:{3},等级:{4}\n经验:{5}/{6}\n", coin, HPMAX, ATK, DEF, LV, EXP, 100);
+}
+
+double Character::damage(const double takeDamage)
+{
+	double damageNum = (std::max)(takeDamage - DEF, takeDamage * 0.05);
+	HP -= damageNum;
+	return damageNum;
 }

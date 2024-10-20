@@ -3,6 +3,7 @@
 #include "character.hpp"
 #include "play.hpp"
 #include "color.hpp"
+#include <random>
 using namespace std;
 //void archive();
 //void play();
