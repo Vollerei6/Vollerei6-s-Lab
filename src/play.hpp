@@ -1,9 +1,8 @@
 ﻿#ifndef _play_h
 #define _play_h
-#include <iostream>
 #include "character.hpp"
 
-void play(Character& playername);
+void play(Character& player);
 /*void play(Character* ID)
 {
     char enemy_name[16] = "Enemy";
