@@ -6,17 +6,17 @@
 #include <algorithm>
 #include "Windows.h"
 #include "color.hpp"
+#include "random_get.hpp"
 
 void play(Character& player)
 {
-	using std::srand, std::time, std::rand,std::cout,std::endl,std::to_string;
-	srand(time(NULL));
-	Character enemy("Enemy", rand() % 120, rand() % 50, rand() % 30);
+	using std::cout,std::endl,std::to_string;
+	Character enemy("Enemy", 120*getDis(), 50*getDis(), 30*getDis());
 	while (true)
 	{
 		cout << "造成" << attack(player, enemy) << "点伤害" << endl;
 		cout << "受到" << attack(enemy, player) << "点伤害" << endl;
-		green("玩家血量:" + to_string(enemy.getHp()));
+		green("玩家血量:" + to_string(player.getHp()));
 		endl(cout);
 		red("怪物血量:" + to_string(enemy.getHp()));
 		endl(cout);

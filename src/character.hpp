@@ -5,18 +5,20 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+#include "random_get.hpp"
 
 class Character{
 	public:
 		Character(const std::string& t_name, double t_HPMAX = 100, double t_ATK = 50, double t_DEF = 30, int t_EXP = 0, int t_LV = 0, int t_skillCD_MAX = 3);//构造函数
 		~Character() = default;
-		friend double attack(const Character &attacker, Character &Target);
 		void skill(Character *ID);
 		void LevelUp();///升级
 		void Save();
 		void Load();
 		inline double getHp() { return HP;}
 		void getInfo();
+		inline double getATK() { return ATK * getDis(); }
+		double damage(const double takeDamage);
 	private:
 		long long coin = 0;
 		double HPMAX;//表示生命值上限 
