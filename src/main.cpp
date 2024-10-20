@@ -26,11 +26,11 @@ int main()
 		cout<<"输入1：进入游戏"<<endl;
 		cout<<"输入2：查看说明"<<endl;
 		cout<<"输入3：存档退出"<<endl;
-        cout << "输入4：查看角色" << endl;
+        cout << "输入2：查看角色" << endl;
 		cin>>status;
         switch(status){
-        case 1:play(Player);break;
-        //case 2:data_search(Player);break;
+        case 1:play(Player); break;
+        case 2:Player.getInfo(); break;
         //case 3:exit(Player);break;
         default:cout<<"输入无效！"<<endl;
         }

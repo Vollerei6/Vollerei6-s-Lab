@@ -16,6 +16,7 @@ class Character{
 		void Save();
 		void Load();
 		inline double getHp() { return HP;}
+		void getInfo();
 	private:
 		long long coin = 0;
 		double HPMAX;//表示生命值上限 
