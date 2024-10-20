@@ -118,3 +118,10 @@ void Character::Save()
 		fout.close();
 	}
 }
+double attack(const Character& attacker, Character& target)
+{
+	double damage = 0;
+	damage = (std::max)(attacker.ATK - target.DEF, attacker.ATK * 0.05);
+	target.HP -= damage;
+	return damage;
+}

@@ -2,6 +2,7 @@
 #include <string>
 #include "character.hpp"
 #include "play.hpp"
+#include "color.hpp"
 using namespace std;
 //void archive();
 //void play();
@@ -11,6 +12,7 @@ using namespace std;
 //主程序部分 
 int main()
 {
+    rgb_init();
     string playername;
     cout << "Enter your name\n";
     cin >> playername;
