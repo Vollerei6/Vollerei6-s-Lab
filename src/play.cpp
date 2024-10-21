@@ -11,7 +11,8 @@
 void play(Character& player)
 {
 	using std::cout,std::endl,std::to_string;
-	Character enemy("Enemy", 75*getDis(), 50*getDis(), 30*getDis(),0,0,3,200*getDis());
+	Character enemy("Enemy", 75*getDis(), 50*getDis(), 15*getDis(),0,0,3,200*getDis());
+	player.resetHp();
 	battle(player, enemy);
 }
 
@@ -42,15 +43,18 @@ void battle(Character& player, Character& enemy)
 		{
 			cout << "平局" << endl;
 		}
-		if (player.getHp() <= 0)
+		else
 		{
-			cout << red()<<"失败" <<white()<< endl;
-			break;
-		}
-		if (enemy.getHp() <= 0)
-		{
-			cout << green()<<"胜利" <<white()<< endl;
-			break;
+			if (player.getHp() <= 0)
+			{
+				cout << red() << "失败" << white() << endl;
+				break;
+			}
+			if (enemy.getHp() <= 0)
+			{
+				cout << green() << "胜利" << white() << endl;
+				break;
+			}
 		}
 		Sleep(1000);
 

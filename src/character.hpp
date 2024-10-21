@@ -21,6 +21,7 @@ class Character{
 		inline double getATK() { return ATK * getDis(); }
 		double damage(const double takeDamage);
 		inline double getSpeed() { return speed; }
+		inline void resetHp() { HP = HPMAX; }
 	private:
 		long long coin = 0;
 		Weapon weapon; //拥有武器
