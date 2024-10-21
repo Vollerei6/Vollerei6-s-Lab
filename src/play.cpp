@@ -11,24 +11,48 @@
 void play(Character& player)
 {
 	using std::cout,std::endl,std::to_string;
-	Character enemy("Enemy", 120*getDis(), 50*getDis(), 30*getDis());
+	Character enemy("Enemy", 75*getDis(), 50*getDis(), 30*getDis(),0,0,3,200*getDis());
+	battle(player, enemy);
+}
+
+void battle(Character& player, Character& enemy)
+{
+	double status1 = 0,status2=0;
+	double editSpeed1 = 1000 / player.getSpeed();
+	double editSpeed2 = 1000 / enemy.getSpeed();
 	while (true)
 	{
-		cout << "造成" <<green()<< attack(player, enemy) <<white()<< "点伤害" << endl;
-		cout << "受到" <<red()<< attack(enemy, player) <<white()<< "点伤害" << endl;
-		cout << green()<<"玩家血量:" << player.getHp()<<white()<<endl;
-		cout <<red()<<"怪物血量:"<<enemy.getHp()<<white()<<endl;
+		using std::cout, std::endl;
+		status1 += (std::min)(editSpeed1, editSpeed2);
+		status2 += (std::min)(editSpeed1, editSpeed2);
+		if (status1 >= editSpeed1)
+		{
+			cout << "造成" << green() << attack(player, enemy) << white() << "点伤害" << endl;
+			cout << red() << "怪物血量:" << enemy.getHp() << white() << endl ;
+			status1 -= editSpeed1;
+		}
+		if (status2 >= editSpeed2)
+		{
+			cout << "受到" <<red()<< attack(enemy, player) <<white()<< "点伤害" << endl;
+			cout << green() << "玩家血量:" << player.getHp() << white() << endl ;
+			status2-=editSpeed2;
+		}
 		endl(cout);
+		if (player.getHp() <= 0 && enemy.getHp() <= 0)
+		{
+			cout << "平局" << endl;
+		}
 		if (player.getHp() <= 0)
 		{
-			cout << "失败" << endl;
+			cout << red()<<"失败" <<white()<< endl;
 			break;
 		}
 		if (enemy.getHp() <= 0)
 		{
-			cout << "胜利" << endl;
+			cout << green()<<"胜利" <<white()<< endl;
 			break;
 		}
 		Sleep(1000);
+
 	}
 }
