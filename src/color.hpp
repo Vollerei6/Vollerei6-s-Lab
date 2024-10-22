@@ -26,4 +26,9 @@ inline std::string white()
 	return rgb_set(255, 255, 255, 0, 0, 0);
 }
 
+inline std::string yellow()
+{
+	return rgb_set(255, 255, 0, 0, 0, 0);
+}
+
 #endif // !COLOR_HPP

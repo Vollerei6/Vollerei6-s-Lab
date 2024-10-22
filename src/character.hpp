@@ -22,6 +22,7 @@ class Character{
 		double damage(const double takeDamage);
 		inline double getSpeed() { return speed; }
 		inline void resetHp() { HP = HPMAX; }
+		inline int addEXP(int addEXP) { this->EXP += addEXP; LevelUp(); return this->EXP; }
 	private:
 		long long coin = 0;
 		Weapon weapon; //拥有武器
