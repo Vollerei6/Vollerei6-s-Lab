@@ -22,6 +22,8 @@ set(SOURCES
     src/random_get.hpp
     src/weapon.cpp
     src/weapon.hpp
+    #src/random_get.hpp
+    #src/random_get.cpp
 )
 
 # 生成可执行文件

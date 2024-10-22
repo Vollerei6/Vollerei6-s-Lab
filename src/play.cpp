@@ -4,7 +4,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-#include "Windows.h"
+#include <chrono>
+#include <thread>
 #include "color.hpp"
 #include "random_get.hpp"
 
@@ -65,7 +66,10 @@ void battle(Character& player, Character& enemy)
 				break;
 			}
 		}
-		Sleep(1000);
-
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 	}
+}
+
+void exitGame(Character& player){
+	player.Save();
 }
