@@ -130,7 +130,7 @@ double attack(Character& attacker, Character& target)
 
 void Character::getInfo()
 {
-	std::cout << std::format("金币数:{0}\n血量:{1}\n攻击:{2}\n防御:{3},等级:{4}\n经验:{5}/{6}\n", coin, HPMAX, ATK, DEF, LV, EXP, 100);
+	std::cout << std::format("金币数:{0}\n血量:{1}\n攻击:{2}\n防御:{3}\n速度:{4}\n等级:{5}\n经验:{6}/{7}\n", coin, HPMAX, ATK, DEF, speed, LV, EXP, LV * 10);
 }
 
 double Character::damage(const double takeDamage)

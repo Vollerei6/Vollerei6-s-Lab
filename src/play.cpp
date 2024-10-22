@@ -43,7 +43,7 @@ void battle(Character& player, Character& enemy)
 		if (player.getHp() <= 0 && enemy.getHp() <= 0)
 		{
 			cout << "平局" << endl;
-			break
+			break;
 		}
 		else
 		{
@@ -61,6 +61,9 @@ void battle(Character& player, Character& enemy)
 			}
 		}
 		std::this_thread::sleep_for(std::chrono::seconds(1));
-
 	}
+}
+
+void exitGame(Character& player){
+	player.Save();
 }

@@ -3,7 +3,7 @@
 #include "character.hpp"
 
 void play(Character& player);
-
+void exitGame(Character& player);
 void battle(Character& charaacter1, Character& character2);
 double attack(Character &attacker, Character &Target);
 #endif
