@@ -5,5 +5,6 @@
 void play(Character& player);
 
 void battle(Character& charaacter1, Character& character2);
+void getWeapon(Character& player);
 double attack(Character &attacker, Character &Target);
 #endif

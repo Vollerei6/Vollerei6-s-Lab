@@ -1,9 +1,15 @@
+ï»¿#pragma once
+#include <string>
 class Weapon
 {
 public:
+	Weapon() = default;
+	Weapon(const std::string& name, double ATK, double Crit, double combo, double suck);
+	~Weapon() = default;
 private:
-	double ATK = 0;//¹¥»÷
-	double Crit = 0;//±©»÷
-	double combo = 0;//Á¬»÷
-	double suck = 0;//ÎüÑª
+	std::string name = "Weapon";//åå­—Â·
+	double ATK = 0;//æ”»å‡»
+	double Crit = 0;//æš´å‡»
+	double combo = 0;//è¿å‡»
+	double suck = 0;//å¸è¡€
 };

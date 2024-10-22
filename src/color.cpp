@@ -1,18 +1,18 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <windows.h>
 #include <format>
 #include <string>
 #include "color.hpp"
-void rgb_init() {																// ³õÊ¼»¯
+void rgb_init() {																// åˆå§‹åŒ–
 	using namespace std;
-	HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);		//ÊäÈë¾ä±ú
-	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);		//Êä³ö¾ä±ú
+	HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);		//è¾“å…¥å¥æŸ„
+	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);		//è¾“å‡ºå¥æŸ„
 	DWORD dwInMode, dwOutMode;
-	GetConsoleMode(hIn, &dwInMode);						//»ñÈ¡¿ØÖÆÌ¨ÊäÈëÄ£Ê½
-	GetConsoleMode(hOut, &dwOutMode);					//»ñÈ¡¿ØÖÆÌ¨Êä³öÄ£Ê½
-	dwInMode |= 0x0200;									//¸ü¸Ä
+	GetConsoleMode(hIn, &dwInMode);						//è·å–æ§åˆ¶å°è¾“å…¥æ¨¡å¼
+	GetConsoleMode(hOut, &dwOutMode);					//è·å–æ§åˆ¶å°è¾“å‡ºæ¨¡å¼
+	dwInMode |= 0x0200;									//æ›´æ”¹
 	dwOutMode |= 0x0004;
-	SetConsoleMode(hIn, dwInMode);						//ÉèÖÃ¿ØÖÆÌ¨ÊäÈëÄ£Ê½
-	SetConsoleMode(hOut, dwOutMode);					//ÉèÖÃ¿ØÖÆÌ¨Êä³öÄ£Ê½
+	SetConsoleMode(hIn, dwInMode);						//è®¾ç½®æ§åˆ¶å°è¾“å…¥æ¨¡å¼
+	SetConsoleMode(hOut, dwOutMode);					//è®¾ç½®æ§åˆ¶å°è¾“å‡ºæ¨¡å¼
 }
 

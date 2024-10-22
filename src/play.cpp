@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include "play.hpp"
 #include "character.hpp"
 #include <cstdlib>
@@ -7,6 +7,12 @@
 #include "Windows.h"
 #include "color.hpp"
 #include "random_get.hpp"
+
+void getWeapon(Character &player)
+{
+	Weapon weapon("weapon", 30 * getDis(), 10 * getDis(), 10 * getDis(), 10*getDis());
+	player.setWeapon(weapon);
+}
 
 void play(Character& player)
 {
@@ -28,33 +34,33 @@ void battle(Character& player, Character& enemy)
 		status2 += (std::min)(editSpeed1, editSpeed2);
 		if (status1 >= editSpeed1)
 		{
-			cout << "Ôì³É" << green() << attack(player, enemy) << white() << "µãÉËº¦" << endl;
-			cout << red() << "¹ÖÎïÑªÁ¿:" << enemy.getHp() << white() << endl ;
+			cout << "é€ æˆ" << green() << attack(player, enemy) << white() << "ç‚¹ä¼¤å®³" << endl;
+			cout << red() << "æ€ªç‰©è¡€é‡:" << enemy.getHp() << white() << endl ;
 			status1 -= editSpeed1;
 		}
 		if (status2 >= editSpeed2)
 		{
-			cout << "ÊÜµ½" <<red()<< attack(enemy, player) <<white()<< "µãÉËº¦" << endl;
-			cout << green() << "Íæ¼ÒÑªÁ¿:" << player.getHp() << white() << endl ;
+			cout << "å—åˆ°" <<red()<< attack(enemy, player) <<white()<< "ç‚¹ä¼¤å®³" << endl;
+			cout << green() << "çŽ©å®¶è¡€é‡:" << player.getHp() << white() << endl ;
 			status2-=editSpeed2;
 		}
 		endl(cout);
 		if (player.getHp() <= 0 && enemy.getHp() <= 0)
 		{
-			cout << "Æ½¾Ö" << endl;
+			cout << "å¹³å±€" << endl;
 			break;
 		}
 		else
 		{
 			if (player.getHp() <= 0)
 			{
-				cout << red() << "Ê§°Ü" << white() << endl;
+				cout << red() << "å¤±è´¥" << white() << endl;
 				break;
 			}
 			if (enemy.getHp() <= 0)
 			{
-				cout << green() << "Ê¤Àû" << white() << endl;
-				cout << yellow() << "µ±Ç°¾­ÑéÖµ£º" << player.addEXP(10) << white() << endl;
+				cout << green() << "èƒœåˆ©" << white() << endl;
+				cout << yellow() << "å½“å‰ç»éªŒå€¼ï¼š" << player.addEXP(10) << white() << endl;
 				player.Save();
 				break;
 			}

@@ -20,7 +20,8 @@ set(SOURCES
     src/color.hpp
     src/color.cpp
     src/random_get.hpp
-    src/random_get.cpp
+    src/weapon.cpp
+    src/weapon.hpp
 )
 
 # 生成可执行文件
