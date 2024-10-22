@@ -4,7 +4,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-#include "Windows.h"
+#include <chrono>
+#include <thread>
 #include "color.hpp"
 #include "random_get.hpp"
 
@@ -28,38 +29,38 @@ void battle(Character& player, Character& enemy)
 		status2 += (std::min)(editSpeed1, editSpeed2);
 		if (status1 >= editSpeed1)
 		{
-			cout << "Ôì³É" << green() << attack(player, enemy) << white() << "µãÉËº¦" << endl;
-			cout << red() << "¹ÖÎïÑªÁ¿:" << enemy.getHp() << white() << endl ;
+			cout << "é€ æˆ" << green() << attack(player, enemy) << white() << "ç‚¹ä¼¤å®³" << endl;
+			cout << red() << "æ€ªç‰©è¡€é‡:" << enemy.getHp() << white() << endl ;
 			status1 -= editSpeed1;
 		}
 		if (status2 >= editSpeed2)
 		{
-			cout << "ÊÜµ½" <<red()<< attack(enemy, player) <<white()<< "µãÉËº¦" << endl;
-			cout << green() << "Íæ¼ÒÑªÁ¿:" << player.getHp() << white() << endl ;
+			cout << "å—åˆ°" <<red()<< attack(enemy, player) <<white()<< "ç‚¹ä¼¤å®³" << endl;
+			cout << green() << "çŽ©å®¶è¡€é‡:" << player.getHp() << white() << endl ;
 			status2-=editSpeed2;
 		}
 		endl(cout);
 		if (player.getHp() <= 0 && enemy.getHp() <= 0)
 		{
-			cout << "Æ½¾Ö" << endl;
-			break;
+			cout << "å¹³å±€" << endl;
+			break
 		}
 		else
 		{
 			if (player.getHp() <= 0)
 			{
-				cout << red() << "Ê§°Ü" << white() << endl;
+				cout << red() << "å¤±è´¥" << white() << endl;
 				break;
 			}
 			if (enemy.getHp() <= 0)
 			{
-				cout << green() << "Ê¤Àû" << white() << endl;
-				cout << yellow() << "µ±Ç°¾­ÑéÖµ£º" << player.addEXP(10) << white() << endl;
+				cout << green() << "èƒœåˆ©" << white() << endl;
+				cout << yellow() << "å½“å‰ç»éªŒå€¼ï¼š" << player.addEXP(10) << white() << endl;
 				player.Save();
 				break;
 			}
 		}
-		Sleep(1000);
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	}
 }

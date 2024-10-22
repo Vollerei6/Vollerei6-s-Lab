@@ -5,16 +5,16 @@
 class RandomGenerator {
 public:
     static std::mt19937& getGenerator() {
-        static std::mt19937 generator(std::random_device{}()); // ¾²Ì¬¾Ö²¿±äÁ¿£¬Ö»³õÊ¼»¯Ò»´Î  
+        static std::mt19937 generator(std::random_device{}()); // é™æ€å±€éƒ¨å˜é‡ï¼Œåªåˆå§‹åŒ–ä¸€æ¬¡  
         return generator;
     }
 
     static std::normal_distribution<>& getNormalDistribution() {
-        static std::normal_distribution<> distribution(1.0, 0.1); // ¾²Ì¬¾Ö²¿±äÁ¿£¬Ö»³õÊ¼»¯Ò»´Î  
+        static std::normal_distribution<> distribution(1.0, 0.1); // é™æ€å±€éƒ¨å˜é‡ï¼Œåªåˆå§‹åŒ–ä¸€æ¬¡  
         return distribution;
     }
 
-    // ÆäËû³ÉÔ±º¯Êı...  
+    // å…¶ä»–æˆå‘˜å‡½æ•°...  
 };
 
 inline double getDis() 
