@@ -7,10 +7,10 @@
 void rgb_init();
 
 inline std::string rgb_set(int wr, int wg, int wb, int br, int bg, int bb)
-{						//ÉèÖÃRGB
-	return (std::string)std::format("\033[38;2;{0};{1};{2}m\033[48;2;{3};{4};{5}m", wr, wg, wb, br, bg, bb);	//\033[38±íÊ¾Ç°¾°£¬\033[48±íÊ¾±³¾°£¬Èı¸ö%d±íÊ¾»ìºÏµÄÊı
+{						//è®¾ç½®RGB
+	return (std::string)std::format("\033[38;2;{0};{1};{2}m\033[48;2;{3};{4};{5}m", wr, wg, wb, br, bg, bb);	//\033[38è¡¨ç¤ºå‰æ™¯ï¼Œ\033[48è¡¨ç¤ºèƒŒæ™¯ï¼Œä¸‰ä¸ª%dè¡¨ç¤ºæ··åˆçš„æ•°
 }
-//ÉèÖÃRGB
+//è®¾ç½®RGB
 inline std::string red()
 {
 	return rgb_set(255, 0, 0, 0, 0, 0);

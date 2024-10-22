@@ -19,9 +19,14 @@ set(SOURCES
     src/character.hpp
     src/color.hpp
     src/color.cpp
+<<<<<<< HEAD
     src/random_get.hpp
     src/weapon.cpp
     src/weapon.hpp
+=======
+    #src/random_get.hpp
+    #src/random_get.cpp
+>>>>>>> 38f412864736f1b14537d6b00624b583562b8d7b
 )
 
 # 生成可执行文件

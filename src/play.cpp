@@ -4,7 +4,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-#include "Windows.h"
+#include <chrono>
+#include <thread>
 #include "color.hpp"
 #include "random_get.hpp"
 
@@ -48,7 +49,11 @@ void battle(Character& player, Character& enemy)
 		if (player.getHp() <= 0 && enemy.getHp() <= 0)
 		{
 			cout << "平局" << endl;
+<<<<<<< HEAD
 			break;
+=======
+			break
+>>>>>>> 38f412864736f1b14537d6b00624b583562b8d7b
 		}
 		else
 		{
@@ -65,7 +70,7 @@ void battle(Character& player, Character& enemy)
 				break;
 			}
 		}
-		Sleep(1000);
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	}
 }
