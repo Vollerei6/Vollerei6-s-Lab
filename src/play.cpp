@@ -42,6 +42,7 @@ void battle(Character& player, Character& enemy)
 		if (player.getHp() <= 0 && enemy.getHp() <= 0)
 		{
 			cout << "平局" << endl;
+			break;
 		}
 		else
 		{
@@ -53,6 +54,8 @@ void battle(Character& player, Character& enemy)
 			if (enemy.getHp() <= 0)
 			{
 				cout << green() << "胜利" << white() << endl;
+				cout << yellow() << "当前经验值：" << player.addEXP(10) << white() << endl;
+				player.Save();
 				break;
 			}
 		}
