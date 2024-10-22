@@ -1,4 +1,4 @@
-#include "color.hpp"
+﻿#include "color.hpp"
 
 #ifdef _WIN32
 #include <windows.h>

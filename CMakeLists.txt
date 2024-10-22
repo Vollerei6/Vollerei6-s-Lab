@@ -19,6 +19,9 @@ set(SOURCES
     src/character.hpp
     src/color.hpp
     src/color.cpp
+    src/random_get.hpp
+    src/weapon.cpp
+    src/weapon.hpp
     #src/random_get.hpp
     #src/random_get.cpp
 )

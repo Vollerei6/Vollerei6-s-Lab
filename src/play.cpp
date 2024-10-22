@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include "play.hpp"
 #include "character.hpp"
 #include <cstdlib>
@@ -8,6 +8,12 @@
 #include <thread>
 #include "color.hpp"
 #include "random_get.hpp"
+
+void getWeapon(Character &player)
+{
+	Weapon weapon("weapon", 30 * getDis(), 10 * getDis(), 10 * getDis(), 10*getDis());
+	player.setWeapon(weapon);
+}
 
 void play(Character& player)
 {
