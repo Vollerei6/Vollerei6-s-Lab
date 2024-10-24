@@ -1,4 +1,6 @@
 #include "weapon.hpp"
+#include <iostream>
+#include <format>
 #include <string>
 #include "nlohmann/json.hpp"
 #include <fstream>
@@ -25,4 +27,9 @@ void Weapon::Load(const std::string& characterName, nlohmann::json& archive)
 	this->Crit = archive[characterName]["weapon"]["weapon"]["Crit"].get<double>();
 	this->combo = archive[characterName]["weapon"]["weapon"]["combo"].get<double>();
 	this->suck = archive[characterName]["weapon"]["weapon"]["suck"].get<double>();
+}
+
+void Weapon::getInfo()
+{
+	std::cout << std::format("ÎäÆ÷¹¥»÷:{0}, ±©»÷:{1}, Á¬»÷:{2}, ÎüÑª:{3}\n", ATK, Crit, combo, suck);
 }
