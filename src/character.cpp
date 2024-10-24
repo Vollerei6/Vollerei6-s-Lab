@@ -119,6 +119,7 @@ void Character::Save()
 		archive[name]["LV"] = LV;
 		archive[name]["skillCD_MAX"] = skillCD_MAX;
 		archive[name]["speed"] = this->speed;
+		weapon.Save(name,archive);
 		fout << archive << std::endl;
 		fout.close();
 	}

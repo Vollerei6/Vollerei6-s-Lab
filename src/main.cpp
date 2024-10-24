@@ -28,11 +28,13 @@ int main()
 		//cout<<"输入2：查看说明"<<endl;
         cout<<"输入2：查看角色\n";
         cout<<"输入3：存档退出\n";
+        cout << "输入4：获得武器\n";
 		cin>>status;
         switch(status){
         case 1:play(Player); break;
         case 2:Player.getInfo(); break;
         case 3:exitGame(Player);break;
+        case 4:getWeapon(Player); break;
         default:cout<<"输入无效！"<<endl;
         }
         if(status==3) break;

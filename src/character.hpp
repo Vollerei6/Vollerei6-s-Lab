@@ -18,7 +18,7 @@ class Character{
 		void Load();
 		inline double getHp() { return HP;}
 		void getInfo();
-		inline double getATK() { return ATK * getDis(); }
+		inline double getATK() { return (weapon.getATK()+ATK )* getDis(); }
 		double damage(const double takeDamage);
 		inline double getSpeed() { return speed; }
 		inline void resetHp() { HP = HPMAX; }
