@@ -18,3 +18,11 @@ void Weapon::Save(const std::string& characterName,nlohmann::json &archive)
 	archive[characterName]["weapon"][this->name]["combo"] = this->combo;
 	archive[characterName]["weapon"][this->name]["suck"] = this->suck;
 }
+
+void Weapon::Load(const std::string& characterName, nlohmann::json& archive)
+{
+	this->ATK = archive[characterName]["weapon"]["weapon"]["ATK"].get<double>();
+	this->Crit = archive[characterName]["weapon"]["weapon"]["Crit"].get<double>();
+	this->combo = archive[characterName]["weapon"]["weapon"]["combo"].get<double>();
+	this->suck = archive[characterName]["weapon"]["weapon"]["suck"].get<double>();
+}

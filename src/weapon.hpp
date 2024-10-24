@@ -10,6 +10,7 @@ public:
 	~Weapon() = default;
 	inline double getATK() { return this->ATK; }
 	void Save(const std::string& characterName,nlohmann::json & archive);
+	void Load(const std::string& characterName, nlohmann::json& archive);
 private:
 	std::string name = "Weapon";//名字·
 	double ATK = 0;//攻击

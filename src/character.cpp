@@ -67,6 +67,7 @@ void Character::Load()
 				LV = archive[name]["LV"].get<int>();
 				skillCD_MAX = archive[name]["skillCD_MAX"].get<int>();
 				this->speed = archive[name]["speed"].get<double>();
+				weapon.Load(name, archive);
 				std::cout << "角色:" << name << "读取成功" << std::endl;
 			}
 			catch (std::exception &e)
